@@ -7,6 +7,7 @@ var data = [
     // Add more data points here
   ];
 
+
   // set up the svg container - select the container div and append an SVG element for your chart
 
   var svgWidth = 400;
@@ -58,4 +59,45 @@ svg.append("g")
   // apply CSS styles - the style.css file, add CSS styles to format and style your chart elements
 
    
-  
+  // Add a mouseover event handler to the bars
+svg.selectAll("rect")
+.on("mouseover", function (event, d) {
+  // Show the tooltip when hovering over a bar
+  tooltip.style("display", "block")
+    .html("Label: " + d.label + "<br>Value: " + d.value) // Customize the content here
+    .style("left", (event.pageX + 10) + "px")
+    .style("top", (event.pageY - 40) + "px");
+})
+.on("mouseout", function () {
+  // Hide the tooltip when the mouse leaves the bar
+  tooltip.style("display", "none");
+});
+// In this code:
+
+// We select the tooltip element using d3.select("#tooltip").
+// We add a "mouseover" event handler to each bar to display the tooltip when the mouse hovers over it.
+// In the tooltip's content, we display the label and value from the data for the hovered bar.
+// We set the tooltip's position based on the mouse pointer's location.
+// We add a "mouseout" event handler to hide the tooltip when the mouse leaves the bar.
+// Now, when you hover over a bar on your chart, the tooltip will appear with the data information for that specific bar.
+
+// create the tooltip variable
+var tooltip = d3.select("#tooltip");
+
+// Add a mouseover event handler to the bars
+svg.selectAll("rect")
+  .on("mouseover", function (event, d) {
+    // Show the tooltip when hovering over a bar
+    tooltip.style("display", "block")
+      .html("Label: " + d.label + "<br>Value: " + d.value) // Customize the content here
+      .style("left", (event.pageX + 10) + "px")
+      .style("top", (event.pageY - 40) + "px");
+  })
+  .on("mouseout", function () {
+    // Hide the tooltip when the mouse leaves the bar
+    tooltip.style("display", "none");
+  });
+
+
+
+
