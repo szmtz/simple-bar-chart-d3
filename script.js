@@ -105,7 +105,7 @@ svg.selectAll("rect")
   .on("mouseover", function (event, d) {
     // Show the tooltip when hovering over a bar
     tooltip.style("display", "block")
-      .html("Label: " + d.label + "<br>Value: " + d.value) // Customize the content here
+      .html("Middle School:" + d.label + "<br>Score:" + d.value) // Customize the content here
       .style("left", (event.pageX + 10) + "px")
       .style("top", (event.pageY - 40) + "px");
   })
@@ -116,3 +116,14 @@ svg.selectAll("rect")
 
 
 // The rest of your code remains unchanged.
+
+// .html("Label: " + d.label + "<br>Value: " + d.value) 
+
+// In this modified code:
+
+// The .chart-container div is centered both vertically and horizontally on the page using CSS.
+// The svgWidth and svgHeight now represent the dimensions of the SVG container.
+// The chartWidth and chartHeight are used to define the width and height of the actual chart within the SVG.
+// The margin variable is introduced to create space around the chart within the SVG.
+// The g element is used to translate the chart's position within the SVG, accounting for the margin.
+// These changes ensure that your bar chart is centered on the page, regardless of the viewport size.
