@@ -1,9 +1,9 @@
 // create the data - define your data as an array of objects, where each object represents a data point 
 
 var data = [
-    { label: "A", value: 30 },
-    { label: "B", value: 50 },
-    { label: "C", value: 20 },
+    { label: "Hope MS", value: 30 },
+    { label: "Funky MS", value: 50 },
+    { label: "Party MS", value: 20 },
     // Add more data points here
   ];
 
@@ -105,7 +105,7 @@ svg.selectAll("rect")
   .on("mouseover", function (event, d) {
     // Show the tooltip when hovering over a bar
     tooltip.style("display", "block")
-      .html("Middle School:" + d.label + "<br>Score:" + d.value) // Customize the content here
+      .html("" + d.label + "<br>Score:" + d.value) // Customize the content here
       .style("left", (event.pageX + 10) + "px")
       .style("top", (event.pageY - 40) + "px");
   })
