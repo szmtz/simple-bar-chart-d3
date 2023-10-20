@@ -1,4 +1,9 @@
+// create the data set
+
 var data = [10, 20, 30, 40, 50];
+
+//create bar chart based on data 
+// select the SVG element and 'append' rectangles for each data point
 
 var svg = d3.select("svg");
 var barWidth = 40;
@@ -21,6 +26,7 @@ svg
   })
   .attr("class", "bar");
 
+  // add labels 
   svg
   .selectAll("text")
   .data(data)
