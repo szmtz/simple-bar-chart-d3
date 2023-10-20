@@ -13,3 +13,11 @@
     font-size: 14px;
     pointer-events: none; /* This prevents the tooltip from blocking interaction with the chart. */
   }
+
+  .chart-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* This centers the chart vertically on the page. */
+  }
+  
