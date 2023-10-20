@@ -1,70 +1,53 @@
-// Define your data (the values you want to display)
-const data = [10, 20, 30, 40, 50];
 
-// Set the dimensions of your chart
-const width = 400;
-const height = 300;
-const barWidth = 40;
+        // // Your data (example data)
+        // var data = [10, 30, 45, 60, 20];
 
-// Create an SVG element to draw your chart on
-const svg = d3
-  .select("body")
-  .append("svg")
-  .attr("width", width)
-  .attr("height", height);
+        // // Set up the SVG canvas
+        // var width = 400;
+        // var height = 200;
+        // var svg = d3.select("#chart")
+        //     .append("svg")
+        //     .attr("width", width)
+        //     .attr("height", height);
 
-// Create a scale for your data to fit the chart
-const xScale = d3.scaleLinear()
-  .domain([0, d3.max(data)])
-  .range([0, width]);
+        // // Create the X and Y scales
+        // var xScale = d3.scaleBand()
+        //     .domain(d3.range(data.length))
+        //     .range([0, width])
+        //     .padding(0.1);
 
-// Create and append the bars to the chart
-svg.selectAll("rect")
-  .data(data)
-  .enter()
-  .append("rect")
-  .attr("x", (d, i) => i * (barWidth + 10))
-  .attr("y", d => height - xScale(d))
-  .attr("width", barWidth)
-  .attr("height", d => xScale(d))
-  .attr("fill", "blue")
-  .on("mouseover", function (d, i) {
-    // When you hover over a bar, show the tooltip
-    d3.select(this)
-      .attr("fill", "orange");
-    tooltip
-      .style("opacity", 1)
-      .html(`Value: ${d}`)
-      .style("left", i * (barWidth + 10) + 10 + "px")
-      .style("top", height - xScale(d) - 30 + "px");
-  })
-  .on("mouseout", function () {
-    // When you move the mouse away from a bar, hide the tooltip
-    d3.select(this)
-      .attr("fill", "blue");
-    tooltip.style("opacity", 0);
-  });
+        // var yScale = d3.scaleLinear()
+        //     .domain([0, d3.max(data)])
+        //     .nice()
+        //     .range([height, 0]);
 
-// Create a tooltip element
-const tooltip = d3
-  .select("body")
-  .append("div")
-  .style("position", "absolute")
-  .style("opacity", 0);
+        // // Create the bars
+        // svg.selectAll(".bar")
+        //     .data(data)
+        //     .enter().append("rect")
+        //     .attr("class", "bar")
+        //     .attr("x", function(d, i) { return xScale(i); })
+        //     .attr("width", xScale.bandwidth())
+        //     .attr("y", function(d) { return yScale(d); })
+        //     .attr("height", function(d) { return height - yScale(d); });
 
-// Style the tooltip
-tooltip.style("background-color", "white");
-tooltip.style("border", "1px solid black");
-tooltip.style("padding", "5px");
-tooltip.style("border-radius", "5px");
+        // // Add tooltips
+        // svg.selectAll(".bar")
+        //     .on("mouseover", function(d, i) {
+        //         // Get the position of the bar for tooltip placement
+        //         var xPos = xScale(i) + xScale.bandwidth() / 2;
+        //         var yPos = yScale(d) - 10;
 
-// Add labels to the chart
-svg.selectAll("text")
-  .data(data)
-  .enter()
-  .append("text")
-  .text(d => d)
-  .attr("x", (d, i) => i * (barWidth + 10) + barWidth / 2)
-  .attr("y", d => height - xScale(d) - 5)
-  .attr("text-anchor", "middle")
-  .attr("font-size", "14px");
+        //         // Show the tooltip
+        //         svg.append("text")
+        //             .attr("class", "tooltip")
+        //             .attr("x", xPos)
+        //             .attr("y", yPos)
+        //             .text("Value: " + d)
+        //             .attr("text-anchor", "middle");
+        //     })
+        //     .on("mouseout", function() {
+        //         // Hide the tooltip on mouseout
+        //         svg.select(".tooltip").remove();
+        //     });
+  
